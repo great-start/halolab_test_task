@@ -18,5 +18,5 @@ app.listen(PORT, async () => {
             console.log('Database connected!!');
             console.log(`Server started at ${PROTOCOL}://${HOST}:${PORT}`);
         })
-        .catch((error) => console.log('Error during Data Source initialization!!!', error));
+        .catch((err) => console.log('Error during Data Source initialization!!!', err));
 });
