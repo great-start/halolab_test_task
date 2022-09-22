@@ -15,7 +15,7 @@ app.listen(PORT, async () => {
   await client
     .connect()
     .then(() => {
-      console.log("Postgres has been successfully connected!!");
+      console.log("Database connected!!");
       console.log(`Server started at ${PROTOCOL}://${HOST}:${PORT}`);
     })
     .catch((error) =>
