@@ -6,7 +6,7 @@ class NodeCacheService {
     }
 
     storeFilmInCache(film) {
-        return this.myCache.set(`${film.title}`, film, 15);
+        return this.myCache.set(`${film.title}`, film, 5);
     }
 
     getFilmFromCache(title) {

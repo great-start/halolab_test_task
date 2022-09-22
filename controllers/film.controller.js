@@ -6,14 +6,19 @@ class FilmController {
         try {
             const { title } = req.params;
 
-            let filmFromCache = nodeCacheService.getFilmFromCache(title);
+            let film = nodeCacheService.getFilmFromCache(title);
 
-            let film;
-            if (!filmFromCache) {
-                film = await dataBaseService.getOneFilmByTitle(title);
+            if (film) {
+                res.json({
+                    message: 'from cache',
+                    film,
+                });
+                return;
             }
 
-            if (!film && !filmFromCache) {
+            film = await dataBaseService.getOneFilmByTitle(title);
+
+            if (!film) {
                 res.status(400).json({
                     message: 'Wrong film title',
                     error: 'Bad request',
@@ -27,14 +32,14 @@ class FilmController {
             }
 
             res.json({
-                message: filmFromCache ? 'from cache' : 'from DB',
-                film: film || filmFromCache,
+                message: 'from DB',
+                film,
             });
         } catch (e) {
             res.status(500).json({
                 message: 'Wrong film title',
                 error: 'Server Error',
-                statusCode: 400,
+                statusCode: 500,
             });
         }
     }
