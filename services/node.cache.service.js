@@ -9,8 +9,8 @@ class NodeCacheService {
         return this.myCache.set(`${film.title}`, film, 15);
     }
 
-    getFilmFromCache(film) {
-        return this.myCache.get(`${film.title}`);
+    getFilmFromCache(title) {
+        return this.myCache.get(title);
     }
 }
 
