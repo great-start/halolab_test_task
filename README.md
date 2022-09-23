@@ -27,8 +27,8 @@ $ npm run start
 ```bash
 # Tests. You may use postman(postman_collection.json) or Swagger.
 
-# All success response receive json with film data object and field 'source', 
-# that shows, where data has been got - cloud, node cache or redis store.  
+# All success response includes json with a film data object and field 'source', 
+# that shows, where the data came from - cloud, node cache or redis store.  
 # Swagger endpoint is shown below, film titles for testing you can find in test_data.txt file
 ```
 
