@@ -7,7 +7,7 @@ import { apiRouter } from './router/index.js';
 
 const app = express();
 
-const { PORT, HOST, PROTOCOL, POSTGRES_URL, REDIS_URL } = config;
+const { PORT, HOST, PROTOCOL, POSTGRES_URL, REDIS_URL, SWAGGER_PATH } = config;
 
 export const PostgresClient = new pg.Client(POSTGRES_URL);
 export const RedisClient = createClient({ url: REDIS_URL });
@@ -28,4 +28,5 @@ app.listen(PORT, async () => {
         })
         .catch((err) => console.log('Error during Cloud Database initialization!!!', err));
     console.log(`Server started at ${PROTOCOL}://${HOST}:${PORT}`);
+    console.log(`Open swagger ${PROTOCOL}://${HOST}:${PORT}/${SWAGGER_PATH}`);
 });

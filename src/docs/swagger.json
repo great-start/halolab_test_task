@@ -1,0 +1,76 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "HaloLab node.js Api",
+        "description": "backend test task",
+        "version": "0.1",
+        "contact": {
+            "email": "zhenya.bill@gmail.com",
+            "name": "Evgen Bilinevich"
+        }
+    },
+  "paths": {
+        "/film/{title}": {
+
+          "get": {
+            "parameters": [{
+              "type": "string",
+              "name": "title",
+              "in": "path",
+              "required": true
+            }],
+            "description": "Get one film by title",
+                "operationId": "Film",
+                "tags": ["Film"],
+                "responses": {
+                    "200": {
+                      "description": "Ok response",
+                      "schema": {
+                          "type": "object",
+                          "example": {
+                              "source": "Node cache | Local Redis Store | Cloud Postgres DataBase",
+                              "film": {
+                                  "film_id": 3,
+                                  "title": "Adaptation Holes",
+                                  "description": "A Astounding Reflection of a Lumberjack And a Car who must Sink a Lumberjack in A Baloon Factory",
+                                  "release_year": 2006,
+                                  "language_id": 1,
+                                  "rental_duration": 7,
+                                  "rental_rate": "2.99",
+                                  "length": 50,
+                                  "replacement_cost": "18.99",
+                                  "rating": "NC-17",
+                                  "last_update": "2013-05-26T11:50:58.951Z",
+                                  "special_features": ["Trailers", "Deleted Scenes"],
+                                  "fulltext": "'adapt':1 'astound':4 'baloon':19 'car':11 'factori':20 'hole':2 'lumberjack':8,16 'must':13 'reflect':5 'sink':14"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                      "description": "Bad Request response",
+                      "schema": {
+                          "type": "object",
+                          "example": {
+                              "message": "Wrong film title",
+                              "error": "Bad request",
+                              "statusCode": 400
+                            }
+                        }
+                    },
+                  "500": {
+                    "description": "Server Error response",
+                    "schema": {
+                      "type": "object",
+                      "example": {
+                        "message": "Server Error",
+                        "error": "Internal Server Error",
+                        "statusCode": 500
+                      }
+                    }
+                  }
+                }
+            }
+        }
+    }
+}

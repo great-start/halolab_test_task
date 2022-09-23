@@ -9,7 +9,7 @@ class FilmController {
 
             if (film) {
                 res.json({
-                    message: 'from Node cache',
+                    source: 'Node cache',
                     film,
                 });
                 return;
@@ -19,7 +19,7 @@ class FilmController {
 
             if (film) {
                 res.json({
-                    message: 'from Redis Store',
+                    source: 'Local Redis Store',
                     film,
                 });
                 return;
@@ -37,7 +37,7 @@ class FilmController {
             }
 
             res.json({
-                message: 'from DataBase',
+                source: 'Cloud Postgres DataBase',
                 film,
             });
 
