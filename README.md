@@ -26,8 +26,9 @@ $ npm run start
 ```
 # You may use Swagger (endpoint - '/docs') or postman (postman_collection.json).
 
-# All success response body includes json with a film data object and field 'source', 
+# All success response includes in body - json with a film data object and field 'source', 
 # that shows, where the data came from - cloud, node cache or redis store.  
 
-# You can find the list of movie titles for testing in test_data.txt
+# You can find the list of movie titles in test_data.txt
+# (for endpoint - '/film/:title')
 ```
