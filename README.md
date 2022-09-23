@@ -17,7 +17,8 @@ $ npm install
 # So you may have to set up redis config in you local machine, if it is required. 
 # (API takes default redis settings. Redis config also inside .env file) 
 # 
-# Tests. You may use postman or Swagger
+# Tests. You may use postman(postman_collection.json) or Swagger. 
+# Swagger endpoint is shown below
 ```
 
 ### Running the app
