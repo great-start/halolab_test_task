@@ -2,8 +2,8 @@ import express from 'express';
 import pg from 'pg';
 import { createClient } from 'redis';
 
-import { apiRouter } from './router/apiRouter.js';
-import { config } from './config/config.js';
+import { config } from './config/index.js';
+import { apiRouter } from './router/index.js';
 
 const app = express();
 

@@ -1,6 +1,4 @@
-import { nodeCacheService } from '../services/node.cache.service.js';
-import { dataBaseService } from '../services/postgres.service.js';
-import { redisService } from '../services/redis.service.js';
+import { dataBaseService, nodeCacheService, redisService } from '../services/index.js';
 
 class FilmController {
     async getOneByParams(req, res) {
