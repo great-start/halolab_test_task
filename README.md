@@ -25,7 +25,7 @@ $ npm run start
 
 ### Testing
 ```bash
-# Tests. You may use postman(postman_collection.json) or Swagger.
+# Tests. You may use postman ( take postman_collection.json) or Swagger.
 
 # All success response includes json with a film data object and field 'source', 
 # that shows, where the data came from - cloud, node cache or redis store.  
