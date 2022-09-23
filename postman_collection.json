@@ -1,0 +1,30 @@
+{
+	"info": {
+		"_postman_id": "390dae20-bde2-485b-90f2-202d79640426",
+		"name": "Halolab_test_task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22457647"
+	},
+	"item": [
+		{
+			"name": "http://localhost:5000/film/:title",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/film/Adaptation Holes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"film",
+						"Adaptation Holes"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
