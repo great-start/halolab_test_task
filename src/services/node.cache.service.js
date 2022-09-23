@@ -7,11 +7,11 @@ class NodeCacheService {
         this.myCache = new NodeCache();
     }
 
-    async storeFilmInCache(film) {
+    async saveFilm(film) {
         return this.myCache.set(film.title, film, config.NODE_TTL);
     }
 
-    async getFilmFromCache(title) {
+    async getFilm(title) {
         return this.myCache.get(title);
     }
 }

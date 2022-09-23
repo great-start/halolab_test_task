@@ -5,7 +5,7 @@ class FilmController {
         try {
             const { title } = req.params;
 
-            let film = await nodeCacheService.getFilmFromCache(title.trim());
+            let film = await nodeCacheService.getFilm(title.trim());
 
             if (film) {
                 res.json({
@@ -15,7 +15,7 @@ class FilmController {
                 return;
             }
 
-            film = await redisService.getFilmFromRedisStore(title.trim());
+            film = await redisService.getFilm(title.trim());
 
             if (film) {
                 res.json({
@@ -25,7 +25,7 @@ class FilmController {
                 return;
             }
 
-            film = await dataBaseService.getOneFilmByTitle(title.trim());
+            film = await dataBaseService.getOneByTitle(title.trim());
 
             if (!film) {
                 res.status(400).json({
@@ -42,8 +42,8 @@ class FilmController {
             });
 
             if (film) {
-                await nodeCacheService.storeFilmInCache(film);
-                await redisService.setFilmToRedisStore(film);
+                await nodeCacheService.saveFilm(film);
+                await redisService.saveFilm(film);
             }
         } catch (e) {
             res.status(500).json({

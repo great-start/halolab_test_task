@@ -1,7 +1,7 @@
 import { PostgresClient } from "../app.js";
 
 class DataBaseService {
-  async getOneFilmByTitle(title) {
+  async getOneByTitle(title) {
     const newVar = await PostgresClient.query(`SELECT * FROM film WHERE title = '${title}'`);
 
     return newVar.rows[0];
