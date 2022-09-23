@@ -9,12 +9,15 @@ $ npm install
 
 ### Configuration
 ```bash
-# Api connects to PostgreSQL cloud database (ElephantSQL), which 
+# Api connects to cloud PostgreSQL database (ElephantSQL), which 
 # includes one table with 200 records. 
- 
+# (database connection config - inside .env file) 
+#
 # Api uses a local Redis Server.
-# So you have to set up redis config in you local machine, if it is required.   
-# .env - configuration environment
+# So you may have to set up redis config in you local machine, if it is required. 
+# (API takes default redis settings. Redis config also inside .env file) 
+# 
+# Tests. You may use postman or Swagger
 ```
 
 ### Running the app
@@ -24,7 +27,7 @@ $ npm run start
 
 ### Swagger docs
 ```
-http://localhost/docs
+http://localhost:5000/docs
 ```
 
 
