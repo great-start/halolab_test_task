@@ -16,14 +16,20 @@ $ npm install
 # Api uses a local Redis Server.
 # So you may have to set up redis config in you local machine, if it is required. 
 # (API takes default redis settings. Redis config also inside .env file) 
-# 
-# Tests. You may use postman(postman_collection.json) or Swagger. 
-# Swagger endpoint is shown below
 ```
 
 ### Running the app
 ```bash
 $ npm run start
+```
+
+### Testing
+```bash
+# Tests. You may use postman(postman_collection.json) or Swagger.
+
+# All success response receive json with film data object and field 'source', 
+# that shows, where data has been got - cloud, node cache or redis store.  
+# Swagger endpoint is shown below, film titles for testing you can find in test_data.txt file
 ```
 
 ### Swagger docs
