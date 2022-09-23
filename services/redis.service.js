@@ -1,15 +1,16 @@
-import { RedisClients } from '../app.js';
+import { RedisClient } from '../app.js';
+import { config } from '../config/config.js';
 
 class RedisService {
     async setFilmToRedisStore(film) {
-        await RedisClients.set(film.title, JSON.stringify(film), {
-            EX: 30,
+        await RedisClient.set(film.title, JSON.stringify(film), {
+            EX: config.REDIS_EX,
             NX: true,
         });
     }
 
     async getFilmFromRedisStore(title) {
-        const string = await RedisClients.get(title);
+        const string = await RedisClient.get(title);
         return JSON.parse(string);
     }
 }

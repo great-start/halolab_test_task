@@ -10,4 +10,7 @@ export const config = {
   POSTGRES_URL: process.env.DB_URL,
 
   REDIS_URL: process.env.REDIS_URL,
+
+  NODE_TTL: Number(process.env.NODE_TTL),
+  REDIS_EX: Number(process.env.REDIS_EX),
 };

@@ -10,32 +10,18 @@ const app = express();
 const { PORT, HOST, PROTOCOL, POSTGRES_URL, REDIS_URL } = config;
 
 export const PostgresClient = new pg.Client(POSTGRES_URL);
+export const RedisClient = createClient({ url: REDIS_URL });
 
-const RedisClient = createClient({ url: REDIS_URL });
+RedisClient.on('error', (err) => console.log('Redis Client Error', err));
 
-( async () => {
+app.use('/', apiRouter);
+
+app.listen(PORT, async () => {
     await RedisClient.connect()
         .then(() => {
             console.log('Local Redis Store connected!');
         })
         .catch((err) => console.log('Error during Redis Store initialization!!!', err));
-})();
-
-RedisClient.on('error', (err) => console.log('Redis Client Error', err));
-
-export const RedisClients = RedisClient;
-app.use('/', apiRouter);
-
-// app.get('/films', async (req, res) => {
-//     const film = await PostgresClient.query(`SELECT * FROM film WHERE title = 'Ace Goldfinger'`);
-//     const newVar = film.rows[0];
-//     await RedisClient.set('user', JSON.stringify(newVar));
-//     //
-//     // const filmFromStorage = await RedisClient.get(`${film.title}`);
-//     res.json(newVar);
-// })
-
-app.listen(PORT, async () => {
     await PostgresClient.connect()
         .then(() => {
             console.log('Cloud Database connected!');
