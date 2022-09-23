@@ -2,14 +2,14 @@ import NodeCache from 'node-cache';
 
 class NodeCacheService {
     constructor() {
-        this.myCache = new NodeCache({ stdTTL: 100 });
+        this.myCache = new NodeCache();
     }
 
-    storeFilmInCache(film) {
-        return this.myCache.set(`${film.title}`, film, 5);
+    async storeFilmInCache(film) {
+        return this.myCache.set(film.title, film, 5);
     }
 
-    getFilmFromCache(title) {
+    async getFilmFromCache(title) {
         return this.myCache.get(title);
     }
 }

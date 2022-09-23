@@ -4,6 +4,6 @@ import { filmController } from '../controllers/film.controller.js';
 
 const router = Router();
 
-router.get('/:title', filmController.getOneByParam);
+router.get('/:title', filmController.getOneByParams);
 
 export const filmRouter = router;
