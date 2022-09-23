@@ -9,12 +9,12 @@ $ npm install
 
 ### Configuration
 ```
-# Api connects to cloud PostgreSQL database (ElephantSQL), which 
-# includes one table with 200 records. 
-#
-# Api uses a local Redis Server.
-# So you may have to set up redis config in you local machine, if it is required. 
-# (This API takes default redis settings. Redis config inside .env file) 
+# Server connects to a PostgreSQL cloud database(ElephantSQL), 
+# which includes one table with 200 records.
+
+# Server also uses a local Redis Store.
+# So you may have to set up redis config on you local machine, if it is needed. 
+# (This API takes default redis settings. Redis config and other - inside .env file) 
 ```
 
 ### Running the app
@@ -24,10 +24,11 @@ $ npm run start
 
 ### Testing
 ```
-# You may use Swagger (endpoint - '/docs') or postman (postman_collection.json).
+# You may use Swagger (swagger endpoint - '/docs') or postman (postman_collection.json).
 
-# All success response includes in body - json with a film data object and field 'source', 
-# that shows, where the data came from - cloud, node cache or redis store.  
+# All successful responses from endpoint ('/film/:title') returns in body:
+# film data object and field 'source', that shows, where the data came from - 
+# cloud database, node cache or redis store.  
 
 # You can find the list of movie titles in test_data.txt
 # (for endpoint - '/film/:title')
