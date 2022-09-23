@@ -38,15 +38,15 @@ class FilmController {
                 return;
             }
 
-            if (film) {
-                await nodeCacheService.storeFilmInCache(film);
-                await redisService.setFilmToRedisStore(film);
-            }
-
             res.json({
                 message: 'from DataBase',
                 film,
             });
+
+            if (film) {
+                await nodeCacheService.storeFilmInCache(film);
+                await redisService.setFilmToRedisStore(film);
+            }
         } catch (e) {
             res.status(500).json({
                 message: 'Server error',
