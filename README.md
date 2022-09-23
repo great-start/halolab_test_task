@@ -1,6 +1,6 @@
 
 ### Description
-Node_Test_Server_Halo_Lab
+Node_Test_Server_HaloLab
 
 ### Installation
 ```bash
