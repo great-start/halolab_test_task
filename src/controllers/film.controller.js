@@ -5,7 +5,7 @@ class FilmController {
         try {
             const { title } = req.params;
 
-            let film = await nodeCacheService.getFilmFromCache(title);
+            let film = await nodeCacheService.getFilmFromCache(title.trim());
 
             if (film) {
                 res.json({
@@ -15,7 +15,7 @@ class FilmController {
                 return;
             }
 
-            film = await redisService.getFilmFromRedisStore(title);
+            film = await redisService.getFilmFromRedisStore(title.trim());
 
             if (film) {
                 res.json({
@@ -25,7 +25,7 @@ class FilmController {
                 return;
             }
 
-            film = await dataBaseService.getOneFilmByTitle(title);
+            film = await dataBaseService.getOneFilmByTitle(title.trim());
 
             if (!film) {
                 res.status(400).json({
