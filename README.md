@@ -18,7 +18,7 @@ $ npm install
 ```
 
 ### Docker
-```
+```bash
 $ npm run start:docker
 ```
 
