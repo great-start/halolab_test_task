@@ -17,6 +17,12 @@ $ npm install
 # (This API takes default redis settings. Redis config and other - inside .env file) 
 ```
 
+### Docker
+```
+$ npm run start:docker
+```
+
+
 ### Running the app
 ```bash
 $ npm run start
